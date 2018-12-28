@@ -59,11 +59,20 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="Box-5x-FbT">
-                        <barButtonItem key="leftBarButtonItem" systemItem="trash" id="iA4-yS-ZKB"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="F56-yG-ht9"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="trash" id="iA4-yS-ZKB">
+                            <connections>
+                                <action selector="refreshAction:" destination="BYZ-38-t0r" id="j1c-ur-Znx"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="F56-yG-ht9">
+                            <connections>
+                                <action selector="optionsAction:" destination="BYZ-38-t0r" id="yyT-He-IgO"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="actionButton" destination="F56-yG-ht9" id="kGg-LU-d91"/>
+                        <outlet property="imageView" destination="FhQ-hr-la0" id="e9F-ZA-6Za"/>
                         <outlet property="refreshButton" destination="iA4-yS-ZKB" id="d75-fh-bgh"/>
                         <outlet property="tableView" destination="zpH-wz-ACe" id="rl4-Nh-WYO"/>
                     </connections>
