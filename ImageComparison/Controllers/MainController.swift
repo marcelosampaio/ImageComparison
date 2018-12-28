@@ -103,13 +103,13 @@ class MainController: UIViewController, UITableViewDataSource, UITableViewDelega
     // MARK: - Image Picker Delegate
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){
         
-        for (key, value) in info {
-            print("👉\(key.rawValue)  👉\(value)")
-//            if key.rawValue == "UIImagePickerControllerOriginalImage" {
-//                let thisImage = value as! UIImage
-//                print("🔥 size: \(thisImage.size)  orientation: \(thisImage.imageOrientation.rawValue)")
-//            }
-        }
+//        for (key, value) in info {
+//            print("👉\(key.rawValue)  👉\(value)")
+////            if key.rawValue == "UIImagePickerControllerOriginalImage" {
+////                let thisImage = value as! UIImage
+////                print("🔥 size: \(thisImage.size)  orientation: \(thisImage.imageOrientation.rawValue)")
+////            }
+//        }
 
         imagePicker.dismiss(animated: true, completion: nil)
         guard let selectedImage = info[.originalImage] as? UIImage else {
