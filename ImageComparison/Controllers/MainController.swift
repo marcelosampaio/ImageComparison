@@ -112,6 +112,8 @@ class MainController: UIViewController, UITableViewDataSource, UITableViewDelega
             print("❌ Image not found!")
             return
         }
+    
+        hideImageInfo()
         self.imageView.image = selectedImage
         showImageinfo()
         
