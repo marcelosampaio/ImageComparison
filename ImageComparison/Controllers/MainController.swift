@@ -105,6 +105,10 @@ class MainController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         for (key, value) in info {
             print("👉\(key.rawValue)  👉\(value)")
+//            if key.rawValue == "UIImagePickerControllerOriginalImage" {
+//                let thisImage = value as! UIImage
+//                print("🔥 size: \(thisImage.size)  orientation: \(thisImage.imageOrientation.rawValue)")
+//            }
         }
 
         imagePicker.dismiss(animated: true, completion: nil)
@@ -122,7 +126,15 @@ class MainController: UIViewController, UITableViewDataSource, UITableViewDelega
     // MARK: - Image Data Info Helper
     private func showImageinfo() {
         imageView.frame = CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: 240.0)
-        source.append("Date: \(Date())")
+        source.append("🗓 Date: \(Date())")
+        source.append("🙌 Width: \(String(describing: (imageView.image?.size.width)!))")
+        source.append("🙌 Height: \(String(describing: (imageView.image?.size.height)!))")
+        if imageView.image?.imageOrientation.rawValue == 0 {
+            source.append("🚥 landscape orientation")
+        }else{
+            source.append("🚦 portrait orientation")
+        }
+
         self.tableView.tableHeaderView = imageView
         tableView.reloadData()
         
