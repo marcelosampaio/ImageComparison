@@ -36,11 +36,7 @@ class MainController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     // MARK: - UI Actions
     @IBAction func refreshAction(_ sender: Any) {
-        // refresh UIImage
-        imageView.image = UIImage()
-        // refresh table view
-        source = [String]()
-        tableView.reloadData()
+        hideImageInfo()
     }
     
     @IBAction func optionsAction(_ sender: Any) {
@@ -107,21 +103,35 @@ class MainController: UIViewController, UITableViewDataSource, UITableViewDelega
     // MARK: - Image Picker Delegate
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){
         
-        
-        
         for (key, value) in info {
             print("👉\(key.rawValue)  👉\(value)")
         }
-        
-        
-        
-        
+
         imagePicker.dismiss(animated: true, completion: nil)
         guard let selectedImage = info[.originalImage] as? UIImage else {
             print("❌ Image not found!")
             return
         }
         self.imageView.image = selectedImage
+        showImageinfo()
+        
+    }
+    
+    // MARK: - Image Data Info Helper
+    private func showImageinfo() {
+        imageView.frame = CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: 240.0)
+        source.append("Date: \(Date())")
+        self.tableView.tableHeaderView = imageView
+        tableView.reloadData()
+        
+    }
+    private func hideImageInfo() {
+        // refresh UIImage
+        imageView.image = UIImage()
+        // refresh table view
+        source = [String]()
+        tableView.tableHeaderView = nil
+        tableView.reloadData()
         
     }
     

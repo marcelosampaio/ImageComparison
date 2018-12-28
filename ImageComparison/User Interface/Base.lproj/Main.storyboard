@@ -18,17 +18,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FhQ-hr-la0">
-                                <rect key="frame" x="0.0" y="64" width="375" height="239"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="FhQ-hr-la0" secondAttribute="height" multiplier="375:239" id="R84-aa-IUU"/>
-                                </constraints>
-                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zpH-wz-ACe">
-                                <rect key="frame" x="0.0" y="302" width="375" height="365"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="zpH-wz-ACe" secondAttribute="height" multiplier="75:73" id="2Hg-jP-bGz"/>
+                                    <constraint firstAttribute="width" secondItem="zpH-wz-ACe" secondAttribute="height" multiplier="125:201" id="rr2-5v-M6S"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="bwv-yl-GK1">
@@ -48,13 +42,10 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="zpH-wz-ACe" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="3bV-Qb-1t0"/>
-                            <constraint firstItem="zpH-wz-ACe" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="7xy-q9-J4P"/>
-                            <constraint firstItem="zpH-wz-ACe" firstAttribute="top" secondItem="FhQ-hr-la0" secondAttribute="bottom" constant="-1" id="Twj-Wi-c2q"/>
-                            <constraint firstItem="FhQ-hr-la0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="VI3-PU-uv5"/>
-                            <constraint firstItem="zpH-wz-ACe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="e01-uz-g56"/>
-                            <constraint firstItem="FhQ-hr-la0" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="haM-o1-zu8"/>
-                            <constraint firstItem="FhQ-hr-la0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="s5E-S0-9d2"/>
+                            <constraint firstItem="zpH-wz-ACe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="7qj-NV-3vK"/>
+                            <constraint firstItem="zpH-wz-ACe" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="A7g-YT-3Kn"/>
+                            <constraint firstItem="zpH-wz-ACe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="CO8-Fo-1PA"/>
+                            <constraint firstItem="zpH-wz-ACe" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="tJM-4i-2I5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -72,12 +63,16 @@
                     </navigationItem>
                     <connections>
                         <outlet property="actionButton" destination="F56-yG-ht9" id="kGg-LU-d91"/>
-                        <outlet property="imageView" destination="FhQ-hr-la0" id="e9F-ZA-6Za"/>
+                        <outlet property="imageView" destination="jZt-gm-ZNN" id="1Ib-zJ-ymF"/>
                         <outlet property="refreshButton" destination="iA4-yS-ZKB" id="d75-fh-bgh"/>
                         <outlet property="tableView" destination="zpH-wz-ACe" id="rl4-Nh-WYO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="jZt-gm-ZNN">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="249"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
             </objects>
             <point key="canvasLocation" x="1352.8" y="-564.46776611694156"/>
         </scene>
