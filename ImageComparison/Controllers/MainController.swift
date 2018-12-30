@@ -125,6 +125,11 @@ class MainController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     // MARK: - Image Data Info Helper
     private func showImageinfo() {
+        // start timer counter
+        let timer = ElapsedTime()
+        
+        
+        // prepare image
         imageView.frame = CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: 240.0)
 
         // image to Data
@@ -136,7 +141,7 @@ class MainController: UIViewController, UITableViewDataSource, UITableViewDelega
         let attributes = PersistenceManager.standard.getFileAttributes("temp.dat")
         let fileSize = attributes["NSFileSize"] as! Int
         _ = PersistenceManager.standard.deleteFile("temp.dat")
-        
+
         // size on disk (jpeg)
         _ = PersistenceManager.standard.addFile(id: "tempj.dat", data: imageDataJpeg! as NSData)
         let attributesJpeg = PersistenceManager.standard.getFileAttributes("tempj.dat")
@@ -166,6 +171,10 @@ class MainController: UIViewController, UITableViewDataSource, UITableViewDelega
         source.append("💼 Base64 size (png): \(String(describing: arquivoBase64png!.count))")
         source.append("💼 Base64 size (jpeg): \(String(describing: arquivoBase64.count))")
         
+        let elapsedTime : Double = timer.stop()
+        source.append("⏰ Elapsed time: \(String(format: "%.2f", elapsedTime)) seconds")
+        
+    
         // table view reload data
         self.tableView.tableHeaderView = imageView
         tableView.reloadData()
