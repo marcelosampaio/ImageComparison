@@ -129,12 +129,20 @@ class MainController: UIViewController, UITableViewDataSource, UITableViewDelega
 
         // image to Data
         let imageData = imageView.image!.pngData()
+        let imageDataJpeg = imageView.image!.jpegData(compressionQuality: 0.5)
         
-        // size on disk
+        // size on disk (png)
         _ = PersistenceManager.standard.addFile(id: "temp.dat", data: imageData! as NSData)
         let attributes = PersistenceManager.standard.getFileAttributes("temp.dat")
         let fileSize = attributes["NSFileSize"] as! Int
         _ = PersistenceManager.standard.deleteFile("temp.dat")
+        
+        // size on disk (jpeg)
+        _ = PersistenceManager.standard.addFile(id: "tempj.dat", data: imageDataJpeg! as NSData)
+        let attributesJpeg = PersistenceManager.standard.getFileAttributes("tempj.dat")
+        let fileSizeJpeg = attributesJpeg["NSFileSize"] as! Int
+        _ = PersistenceManager.standard.deleteFile("tempj.dat")
+
         
         // base64
         let arquivoBase64 = convertImageToBase64(image: imageView.image!)
@@ -149,10 +157,14 @@ class MainController: UIViewController, UITableViewDataSource, UITableViewDelega
         }else{
             source.append("🚦 portrait orientation")
         }
-        source.append("💼 Data size: \(String(describing: (imageData?.count)!))")
-        source.append("💼 Disk size: \(String(describing: fileSize))")
-        source.append("💼 Base64 jpeg size: \(String(describing: arquivoBase64.count))")
-        source.append("💼 Base64 png size: \(String(describing: arquivoBase64png!.count))")
+        source.append("🏵 Data size (png): \(String(describing: (imageData?.count)!))")
+        source.append("🏵 Data size (jpeg): \(String(describing: (imageDataJpeg?.count)!))")
+        
+        source.append("🍺 Disk size (png): \(String(describing: fileSize))")
+        source.append("🍺 Disk size (jpeg): \(String(describing: fileSizeJpeg))")
+        
+        source.append("💼 Base64 size (png): \(String(describing: arquivoBase64png!.count))")
+        source.append("💼 Base64 size (jpeg): \(String(describing: arquivoBase64.count))")
         
         // table view reload data
         self.tableView.tableHeaderView = imageView
