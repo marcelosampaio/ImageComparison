@@ -138,6 +138,7 @@ class MainController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         // base64
         let arquivoBase64 = convertImageToBase64(image: imageView.image!)
+        let arquivoBase64png = imageData?.base64EncodedString()
 
         // display values
         source.append("🗓 Date: \(Date())")
@@ -150,7 +151,8 @@ class MainController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         source.append("💼 Data size: \(String(describing: (imageData?.count)!))")
         source.append("💼 Disk size: \(String(describing: fileSize))")
-        source.append("💼 Base64 size: \(String(describing: arquivoBase64.count))")
+        source.append("💼 Base64 jpeg size: \(String(describing: arquivoBase64.count))")
+        source.append("💼 Base64 png size: \(String(describing: arquivoBase64png!.count))")
         
         // table view reload data
         self.tableView.tableHeaderView = imageView
