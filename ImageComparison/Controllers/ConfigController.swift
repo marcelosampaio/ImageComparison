@@ -29,21 +29,27 @@ class ConfigController: UITableViewController {
     // MARK: - UI Actions
     
     @IBAction func pngDataSizeAction(_ sender: Any) {
+        AppSettings.standard.pngDataSize = pngDataSize.isOn
     }
     
     @IBAction func pngDiskSizeAction(_ sender: Any) {
+        AppSettings.standard.pngDiskSize = pngDiskSize.isOn
     }
     
     @IBAction func pngBase64SizeAction(_ sender: Any) {
+        AppSettings.standard.pngBase64Size = pngBase64Size.isOn
     }
     
     @IBAction func jpegDataSizeAction(_ sender: Any) {
+        AppSettings.standard.jpegDataSize = jpegDataSize.isOn
     }
     
     @IBAction func jpegDiskSizeAction(_ sender: Any) {
+        AppSettings.standard.jpegDiskSize = jpegDiskSize.isOn
     }
     
     @IBAction func jpegBase64SizeAction(_ sender: Any) {
+        AppSettings.standard.jpegBase64Size = jpegBase64Size.isOn
     }
     
     // MARK: - UI Refresh
