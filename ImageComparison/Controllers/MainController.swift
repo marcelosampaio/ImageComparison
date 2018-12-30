@@ -36,7 +36,7 @@ class MainController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     // MARK: - UI Actions
     @IBAction func configAction(_ sender: Any) {
-        print("config action")
+        performSegue(withIdentifier: "showConfig", sender: self)
     }
     
     @IBAction func optionsAction(_ sender: Any) {
