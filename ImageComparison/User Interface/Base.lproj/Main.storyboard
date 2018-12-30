@@ -50,9 +50,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="Box-5x-FbT">
-                        <barButtonItem key="leftBarButtonItem" systemItem="trash" id="iA4-yS-ZKB">
+                        <barButtonItem key="leftBarButtonItem" systemItem="compose" id="iA4-yS-ZKB">
                             <connections>
-                                <action selector="refreshAction:" destination="BYZ-38-t0r" id="j1c-ur-Znx"/>
+                                <action selector="configAction:" destination="BYZ-38-t0r" id="wMY-Ga-e5z"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="F56-yG-ht9">

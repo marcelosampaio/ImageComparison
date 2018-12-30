@@ -35,8 +35,8 @@ class MainController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     
     // MARK: - UI Actions
-    @IBAction func refreshAction(_ sender: Any) {
-        hideImageInfo()
+    @IBAction func configAction(_ sender: Any) {
+        print("config action")
     }
     
     @IBAction func optionsAction(_ sender: Any) {
@@ -52,6 +52,10 @@ class MainController: UIViewController, UITableViewDataSource, UITableViewDelega
             // completion
             self.takePicture()
         }
+        let refreshAction = UIAlertAction(title: "Erase image and info", style: .destructive) { (action) in
+            // completion
+            self.hideImageInfo()
+        }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
             { (action) in
                 // completion
@@ -59,6 +63,9 @@ class MainController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         // actions to the sheet
         optionMenu.addAction(takePictureAction)
+        if !(self.imageView.image == nil) {
+            optionMenu.addAction(refreshAction)
+        }
         optionMenu.addAction(cancelAction)
         
         // present option menu
@@ -182,7 +189,7 @@ class MainController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     private func hideImageInfo() {
         // refresh UIImage
-        imageView.image = UIImage()
+        imageView.image = nil //UIImage()
         // refresh table view
         source = [String]()
         tableView.tableHeaderView = nil
