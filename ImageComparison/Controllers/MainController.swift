@@ -135,6 +135,20 @@ class MainController: UIViewController, UITableViewDataSource, UITableViewDelega
             source.append("🚦 portrait orientation")
         }
 
+        // image to Data
+//        let imageData = UIImagePNGRepresentation(imageView.image!)
+        let imageData = imageView.image!.pngData()
+        source.append("💼 Data size: \(String(describing: (imageData?.count)!))")
+        
+        // size on disk
+        _ = PersistenceManager.standard.addFile(id: "temp.dat", data: imageData! as NSData)
+        let attributes = PersistenceManager.standard.getFileAttributes("temp.dat")
+        let fileSize = attributes["NSFileSize"] as! Int
+        source.append("💼 Disk size: \(String(describing: fileSize))")
+        _ = PersistenceManager.standard.deleteFile("temp.dat")
+        
+        
+        
         self.tableView.tableHeaderView = imageView
         tableView.reloadData()
         
