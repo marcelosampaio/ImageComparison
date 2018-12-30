@@ -147,7 +147,9 @@ class MainController: UIViewController, UITableViewDataSource, UITableViewDelega
         source.append("💼 Disk size: \(String(describing: fileSize))")
         _ = PersistenceManager.standard.deleteFile("temp.dat")
         
-        
+        // base64
+        let arquivoBase64 = convertImageToBase64(image: imageView.image!)
+        source.append("💼 Base64 size: \(String(describing: arquivoBase64.count))")
         
         self.tableView.tableHeaderView = imageView
         tableView.reloadData()
@@ -163,6 +165,17 @@ class MainController: UIViewController, UITableViewDataSource, UITableViewDelega
         
     }
     
+    // MARK: - Converter
+    func convertImageToBase64(image: UIImage) -> String {
+        
+        let jpegCompressionQuality: CGFloat = 0.5
+//        let imageData = UIImageJPEGRepresentation(image, jpegCompressionQuality)
+        let imageData = image.jpegData(compressionQuality: jpegCompressionQuality)
+        let base64String = imageData?.base64EncodedString()
+        
+        return base64String!
+        
+    }
     
 }
 
