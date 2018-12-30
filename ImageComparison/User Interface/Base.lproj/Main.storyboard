@@ -109,6 +109,9 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="4UQ-e1-fj2" secondAttribute="height" multiplier="47:31" id="iBO-8f-nxQ"/>
                                                     </constraints>
+                                                    <connections>
+                                                        <action selector="pngDataSizeAction:" destination="PZn-Qt-n0c" eventType="valueChanged" id="tyr-3G-FLV"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -142,6 +145,9 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="oI4-G3-3t2" secondAttribute="height" multiplier="47:31" id="QgA-dF-j3m"/>
                                                     </constraints>
+                                                    <connections>
+                                                        <action selector="pngDiskSizeAction:" destination="PZn-Qt-n0c" eventType="valueChanged" id="VmF-91-BAm"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -175,6 +181,9 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="CPl-rV-TUs" secondAttribute="height" multiplier="47:31" id="2wa-xn-ZdE"/>
                                                     </constraints>
+                                                    <connections>
+                                                        <action selector="pngBase64SizeAction:" destination="PZn-Qt-n0c" eventType="valueChanged" id="QpA-xT-k7h"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -209,6 +218,9 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="awn-Tl-fuw" secondAttribute="height" multiplier="47:31" id="Cvy-l0-CKx"/>
                                                     </constraints>
+                                                    <connections>
+                                                        <action selector="jpegDataSizeAction:" destination="PZn-Qt-n0c" eventType="valueChanged" id="2sF-hf-o1J"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -239,6 +251,9 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="tMC-gg-VfZ" secondAttribute="height" multiplier="47:31" id="0pQ-4a-S9x"/>
                                                     </constraints>
+                                                    <connections>
+                                                        <action selector="jpegDiskSizeAction:" destination="PZn-Qt-n0c" eventType="valueChanged" id="nat-hw-fPv"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -269,6 +284,9 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="c7D-IX-FnS" secondAttribute="height" multiplier="47:31" id="8CM-5F-Iyh"/>
                                                     </constraints>
+                                                    <connections>
+                                                        <action selector="jpegBase64SizeAction:" destination="PZn-Qt-n0c" eventType="valueChanged" id="Qiu-Yu-bNF"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>

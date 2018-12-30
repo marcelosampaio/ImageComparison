@@ -28,6 +28,24 @@ class ConfigController: UITableViewController {
 
     // MARK: - UI Actions
     
+    @IBAction func pngDataSizeAction(_ sender: Any) {
+    }
+    
+    @IBAction func pngDiskSizeAction(_ sender: Any) {
+    }
+    
+    @IBAction func pngBase64SizeAction(_ sender: Any) {
+    }
+    
+    @IBAction func jpegDataSizeAction(_ sender: Any) {
+    }
+    
+    @IBAction func jpegDiskSizeAction(_ sender: Any) {
+    }
+    
+    @IBAction func jpegBase64SizeAction(_ sender: Any) {
+    }
+    
     // MARK: - UI Refresh
     private func uiRefresh() {
         pngDataSize.isOn = AppSettings.standard.pngDataSize
