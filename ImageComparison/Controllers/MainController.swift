@@ -126,6 +126,20 @@ class MainController: UIViewController, UITableViewDataSource, UITableViewDelega
     // MARK: - Image Data Info Helper
     private func showImageinfo() {
         imageView.frame = CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: 240.0)
+
+        // image to Data
+        let imageData = imageView.image!.pngData()
+        
+        // size on disk
+        _ = PersistenceManager.standard.addFile(id: "temp.dat", data: imageData! as NSData)
+        let attributes = PersistenceManager.standard.getFileAttributes("temp.dat")
+        let fileSize = attributes["NSFileSize"] as! Int
+        _ = PersistenceManager.standard.deleteFile("temp.dat")
+        
+        // base64
+        let arquivoBase64 = convertImageToBase64(image: imageView.image!)
+
+        // display values
         source.append("🗓 Date: \(Date())")
         source.append("🙌 Width: \(String(describing: (imageView.image?.size.width)!))")
         source.append("🙌 Height: \(String(describing: (imageView.image?.size.height)!))")
@@ -134,23 +148,11 @@ class MainController: UIViewController, UITableViewDataSource, UITableViewDelega
         }else{
             source.append("🚦 portrait orientation")
         }
-
-        // image to Data
-//        let imageData = UIImagePNGRepresentation(imageView.image!)
-        let imageData = imageView.image!.pngData()
         source.append("💼 Data size: \(String(describing: (imageData?.count)!))")
-        
-        // size on disk
-        _ = PersistenceManager.standard.addFile(id: "temp.dat", data: imageData! as NSData)
-        let attributes = PersistenceManager.standard.getFileAttributes("temp.dat")
-        let fileSize = attributes["NSFileSize"] as! Int
         source.append("💼 Disk size: \(String(describing: fileSize))")
-        _ = PersistenceManager.standard.deleteFile("temp.dat")
-        
-        // base64
-        let arquivoBase64 = convertImageToBase64(image: imageView.image!)
         source.append("💼 Base64 size: \(String(describing: arquivoBase64.count))")
         
+        // table view reload data
         self.tableView.tableHeaderView = imageView
         tableView.reloadData()
         
