@@ -33,11 +33,17 @@ class ConfigController: UITableViewController {
         if !pngDataSize.isOn {
             pngBase64Size.isOn = false
             AppSettings.standard.pngBase64Size = pngBase64Size.isOn
+            pngDiskSize.isOn = false
+            AppSettings.standard.pngDiskSize = pngDiskSize.isOn
         }
     }
     
     @IBAction func pngDiskSizeAction(_ sender: Any) {
         AppSettings.standard.pngDiskSize = pngDiskSize.isOn
+        if pngDiskSize.isOn {
+            pngDataSize.isOn = true
+            AppSettings.standard.pngDataSize = pngDataSize.isOn
+        }
     }
     
     @IBAction func pngBase64SizeAction(_ sender: Any) {
@@ -53,11 +59,17 @@ class ConfigController: UITableViewController {
         if !jpegDataSize.isOn {
             jpegBase64Size.isOn = false
             AppSettings.standard.jpegBase64Size = jpegBase64Size.isOn
+            jpegDiskSize.isOn = false
+            AppSettings.standard.jpegDiskSize = jpegDiskSize.isOn
         }
     }
     
     @IBAction func jpegDiskSizeAction(_ sender: Any) {
         AppSettings.standard.jpegDiskSize = jpegDiskSize.isOn
+        if jpegDiskSize.isOn {
+            jpegDataSize.isOn = true
+            AppSettings.standard.jpegDataSize = jpegDataSize.isOn
+        }
     }
     
     @IBAction func jpegBase64SizeAction(_ sender: Any) {

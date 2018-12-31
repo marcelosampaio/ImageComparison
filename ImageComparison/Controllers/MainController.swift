@@ -14,6 +14,10 @@ class MainController: UIViewController, UITableViewDataSource, UITableViewDelega
     private var source = [String]()
     private var imagePicker: UIImagePickerController!
     
+    private var imageData = Data()
+    private var imageDataJpeg = Data()
+    
+    
     // Enums
     enum ImageSource {
         case photoLibrary
@@ -138,28 +142,7 @@ class MainController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         // prepare image
         imageView.frame = CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: 240.0)
-
-        // image to Data
-        let imageData = imageView.image!.pngData()
-        let imageDataJpeg = imageView.image!.jpegData(compressionQuality: 0.5)
         
-        // size on disk (png)
-        _ = PersistenceManager.standard.addFile(id: "temp.dat", data: imageData! as NSData)
-        let attributes = PersistenceManager.standard.getFileAttributes("temp.dat")
-        let fileSize = attributes["NSFileSize"] as! Int
-        _ = PersistenceManager.standard.deleteFile("temp.dat")
-
-        // size on disk (jpeg)
-        _ = PersistenceManager.standard.addFile(id: "tempj.dat", data: imageDataJpeg! as NSData)
-        let attributesJpeg = PersistenceManager.standard.getFileAttributes("tempj.dat")
-        let fileSizeJpeg = attributesJpeg["NSFileSize"] as! Int
-        _ = PersistenceManager.standard.deleteFile("tempj.dat")
-
-        
-        // base64
-        let arquivoBase64 = imageDataJpeg?.base64EncodedData()
-        let arquivoBase64png = imageData?.base64EncodedString()
-
         // display values
         source.append("🗓 Date: \(Date())")
         source.append("🙌 Width: \(String(describing: (imageView.image?.size.width)!))")
@@ -169,14 +152,68 @@ class MainController: UIViewController, UITableViewDataSource, UITableViewDelega
         }else{
             source.append("🚦 portrait orientation")
         }
-        source.append("🏵 Data size (png): \(String(describing: (imageData?.count)!))")
-        source.append("🏵 Data size (jpeg): \(String(describing: (imageDataJpeg?.count)!))")
+
+        // image to Data
+        if AppSettings.standard.pngDataSize {
+            imageData = imageView.image!.pngData()!
+            source.append("🏵 Data size (png): \(String(describing: imageData.count))")
+        }
+        if AppSettings.standard.jpegDataSize {
+            imageDataJpeg = imageView.image!.jpegData(compressionQuality: 0.5)!
+            source.append("🏵 Data size (jpeg): \(String(describing: imageDataJpeg.count))")
+        }
+
         
-        source.append("🍺 Disk size (png): \(String(describing: fileSize))")
-        source.append("🍺 Disk size (jpeg): \(String(describing: fileSizeJpeg))")
         
-        source.append("💼 Base64 size (png): \(String(describing: arquivoBase64png!.count))")
-        source.append("💼 Base64 size (jpeg): \(String(describing: arquivoBase64!.count))")
+        // size on disk (png)
+        if AppSettings.standard.pngDiskSize {
+            _ = PersistenceManager.standard.addFile(id: "temp.dat", data: imageData as NSData)
+            let attributes = PersistenceManager.standard.getFileAttributes("temp.dat")
+            let fileSize = attributes["NSFileSize"] as! Int
+            _ = PersistenceManager.standard.deleteFile("temp.dat")
+            source.append("🍺 Disk size (png): \(String(describing: fileSize))")
+        }
+        
+
+        // size on disk (jpeg)
+        if AppSettings.standard.jpegDiskSize {
+            _ = PersistenceManager.standard.addFile(id: "tempj.dat", data: imageDataJpeg as NSData)
+            let attributesJpeg = PersistenceManager.standard.getFileAttributes("tempj.dat")
+            let fileSizeJpeg = attributesJpeg["NSFileSize"] as! Int
+            _ = PersistenceManager.standard.deleteFile("tempj.dat")
+            source.append("🍺 Disk size (jpeg): \(String(describing: fileSizeJpeg))")
+        }
+        
+
+        
+        // base64
+        if AppSettings.standard.pngBase64Size {
+            let arquivoBase64 = imageDataJpeg.base64EncodedData()
+            source.append("💼 Base64 size (png): \(String(describing: arquivoBase64.count))")
+        }
+        if AppSettings.standard.jpegBase64Size {
+            let arquivoBase64jpeg = imageData.base64EncodedString()
+            source.append("💼 Base64 size (jpeg): \(String(describing: arquivoBase64jpeg.count))")
+        }
+        
+
+//        // display values
+//        source.append("🗓 Date: \(Date())")
+//        source.append("🙌 Width: \(String(describing: (imageView.image?.size.width)!))")
+//        source.append("🙌 Height: \(String(describing: (imageView.image?.size.height)!))")
+//        if imageView.image?.imageOrientation.rawValue == 0 {
+//            source.append("🚥 landscape orientation")
+//        }else{
+//            source.append("🚦 portrait orientation")
+//        }
+//        source.append("🏵 Data size (png): \(String(describing: (imageData?.count)!))")
+//        source.append("🏵 Data size (jpeg): \(String(describing: (imageDataJpeg?.count)!))")
+        
+//        source.append("🍺 Disk size (png): \(String(describing: fileSize))")
+//        source.append("🍺 Disk size (jpeg): \(String(describing: fileSizeJpeg))")
+        
+//        source.append("💼 Base64 size (png): \(String(describing: arquivoBase64png.count))")
+//        source.append("💼 Base64 size (jpeg): \(String(describing: arquivoBase64!.count))")
         
         let elapsedTime : Double = timer.stop()
         source.append("⏰ Elapsed time: \(String(format: "%.2f", elapsedTime)) seconds")
