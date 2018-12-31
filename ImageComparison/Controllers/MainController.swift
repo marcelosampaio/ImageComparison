@@ -196,25 +196,6 @@ class MainController: UIViewController, UITableViewDataSource, UITableViewDelega
             source.append("💼 Base64 size (jpeg): \(String(describing: arquivoBase64jpeg.count))")
         }
         
-
-//        // display values
-//        source.append("🗓 Date: \(Date())")
-//        source.append("🙌 Width: \(String(describing: (imageView.image?.size.width)!))")
-//        source.append("🙌 Height: \(String(describing: (imageView.image?.size.height)!))")
-//        if imageView.image?.imageOrientation.rawValue == 0 {
-//            source.append("🚥 landscape orientation")
-//        }else{
-//            source.append("🚦 portrait orientation")
-//        }
-//        source.append("🏵 Data size (png): \(String(describing: (imageData?.count)!))")
-//        source.append("🏵 Data size (jpeg): \(String(describing: (imageDataJpeg?.count)!))")
-        
-//        source.append("🍺 Disk size (png): \(String(describing: fileSize))")
-//        source.append("🍺 Disk size (jpeg): \(String(describing: fileSizeJpeg))")
-        
-//        source.append("💼 Base64 size (png): \(String(describing: arquivoBase64png.count))")
-//        source.append("💼 Base64 size (jpeg): \(String(describing: arquivoBase64!.count))")
-        
         let elapsedTime : Double = timer.stop()
         source.append("⏰ Elapsed time: \(String(format: "%.2f", elapsedTime)) seconds")
         
