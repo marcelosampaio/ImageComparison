@@ -188,11 +188,11 @@ class MainController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         // base64
         if AppSettings.standard.pngBase64Size {
-            let arquivoBase64 = imageDataJpeg.base64EncodedData()
+            let arquivoBase64 = imageData.base64EncodedData()
             source.append("💼 Base64 size (png): \(String(describing: arquivoBase64.count))")
         }
         if AppSettings.standard.jpegBase64Size {
-            let arquivoBase64jpeg = imageData.base64EncodedString()
+            let arquivoBase64jpeg = imageDataJpeg.base64EncodedString()
             source.append("💼 Base64 size (jpeg): \(String(describing: arquivoBase64jpeg.count))")
         }
         
