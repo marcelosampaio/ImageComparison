@@ -157,7 +157,7 @@ class MainController: UIViewController, UITableViewDataSource, UITableViewDelega
 
         
         // base64
-        let arquivoBase64 = convertImageToBase64(image: imageView.image!)
+        let arquivoBase64 = imageDataJpeg?.base64EncodedData()
         let arquivoBase64png = imageData?.base64EncodedString()
 
         // display values
@@ -176,7 +176,7 @@ class MainController: UIViewController, UITableViewDataSource, UITableViewDelega
         source.append("🍺 Disk size (jpeg): \(String(describing: fileSizeJpeg))")
         
         source.append("💼 Base64 size (png): \(String(describing: arquivoBase64png!.count))")
-        source.append("💼 Base64 size (jpeg): \(String(describing: arquivoBase64.count))")
+        source.append("💼 Base64 size (jpeg): \(String(describing: arquivoBase64!.count))")
         
         let elapsedTime : Double = timer.stop()
         source.append("⏰ Elapsed time: \(String(format: "%.2f", elapsedTime)) seconds")
@@ -197,17 +197,7 @@ class MainController: UIViewController, UITableViewDataSource, UITableViewDelega
         
     }
     
-    // MARK: - Converter
-    func convertImageToBase64(image: UIImage) -> String {
-        
-        let jpegCompressionQuality: CGFloat = 0.5
-//        let imageData = UIImageJPEGRepresentation(image, jpegCompressionQuality)
-        let imageData = image.jpegData(compressionQuality: jpegCompressionQuality)
-        let base64String = imageData?.base64EncodedString()
-        
-        return base64String!
-        
-    }
+
     
 }
 

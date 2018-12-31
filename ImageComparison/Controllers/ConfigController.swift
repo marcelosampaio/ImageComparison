@@ -30,6 +30,10 @@ class ConfigController: UITableViewController {
     
     @IBAction func pngDataSizeAction(_ sender: Any) {
         AppSettings.standard.pngDataSize = pngDataSize.isOn
+        if !pngDataSize.isOn {
+            pngBase64Size.isOn = false
+            AppSettings.standard.pngBase64Size = pngBase64Size.isOn
+        }
     }
     
     @IBAction func pngDiskSizeAction(_ sender: Any) {
@@ -38,10 +42,18 @@ class ConfigController: UITableViewController {
     
     @IBAction func pngBase64SizeAction(_ sender: Any) {
         AppSettings.standard.pngBase64Size = pngBase64Size.isOn
+        if pngBase64Size.isOn {
+            pngDataSize.isOn = true
+            AppSettings.standard.pngDataSize = pngDataSize.isOn
+        }
     }
     
     @IBAction func jpegDataSizeAction(_ sender: Any) {
         AppSettings.standard.jpegDataSize = jpegDataSize.isOn
+        if !jpegDataSize.isOn {
+            jpegBase64Size.isOn = false
+            AppSettings.standard.jpegBase64Size = jpegBase64Size.isOn
+        }
     }
     
     @IBAction func jpegDiskSizeAction(_ sender: Any) {
@@ -50,6 +62,10 @@ class ConfigController: UITableViewController {
     
     @IBAction func jpegBase64SizeAction(_ sender: Any) {
         AppSettings.standard.jpegBase64Size = jpegBase64Size.isOn
+        if jpegBase64Size.isOn {
+            jpegDataSize.isOn = true
+            AppSettings.standard.jpegDataSize = jpegDataSize.isOn
+        }
     }
     
     // MARK: - UI Refresh
