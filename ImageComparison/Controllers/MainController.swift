@@ -104,13 +104,14 @@ class MainController: UIViewController, UITableViewDataSource, UITableViewDelega
         selectImageFrom(.camera)
     }
     private func resizePicture() {
-        print("🤓 Resize picture")
+        self.view.showActivityLoading()
         // save image before resizing
         imageToBeResized = imageView.image
         hideImageInfo()
         // resize the original image
         imageView.image = imageToBeResized?.resizeToSize(size: CGSize(width: (imageToBeResized?.size.width)!/2, height: (imageToBeResized?.size.height)!/2))
         showImageinfo()
+        self.view.hideActivityLoading()
         
     }
     
