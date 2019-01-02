@@ -12,6 +12,7 @@
 		2DB27E8121D638C3007D6F16 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DB27E7F21D638C3007D6F16 /* Main.storyboard */; };
 		2DB27E8321D638D4007D6F16 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DB27E8221D638D4007D6F16 /* Assets.xcassets */; };
 		2DB27E8621D638D4007D6F16 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DB27E8421D638D4007D6F16 /* LaunchScreen.storyboard */; };
+		2DCA585421DCDEBC00DB414C /* UIImage+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCA585321DCDEBC00DB414C /* UIImage+Utils.swift */; };
 		9CABA17921D9204D00CF1CCE /* ConfigController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CABA17821D9204D00CF1CCE /* ConfigController.swift */; };
 		9CC110E721D6E65F000E9CEC /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC110E621D6E65F000E9CEC /* PersistenceManager.swift */; };
 		9CC110EA21D8F9B7000E9CEC /* ElapsedTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC110E921D8F9B6000E9CEC /* ElapsedTime.swift */; };
@@ -26,6 +27,7 @@
 		2DB27E8221D638D4007D6F16 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2DB27E8521D638D4007D6F16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2DB27E8721D638D4007D6F16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2DCA585321DCDEBC00DB414C /* UIImage+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Utils.swift"; sourceTree = "<group>"; };
 		9CABA17821D9204D00CF1CCE /* ConfigController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigController.swift; sourceTree = "<group>"; };
 		9CC110E621D6E65F000E9CEC /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		9CC110E921D8F9B6000E9CEC /* ElapsedTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElapsedTime.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				9CC110E621D6E65F000E9CEC /* PersistenceManager.swift */,
+				2DCA585321DCDEBC00DB414C /* UIImage+Utils.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 				9CABA17921D9204D00CF1CCE /* ConfigController.swift in Sources */,
 				9CC110EA21D8F9B7000E9CEC /* ElapsedTime.swift in Sources */,
 				2DB27E7E21D638C3007D6F16 /* MainController.swift in Sources */,
+				2DCA585421DCDEBC00DB414C /* UIImage+Utils.swift in Sources */,
 				9CC110EC21D904D0000E9CEC /* AppSettings.swift in Sources */,
 				2DB27E7C21D638C3007D6F16 /* AppDelegate.swift in Sources */,
 			);

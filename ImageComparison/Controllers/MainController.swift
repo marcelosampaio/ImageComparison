@@ -17,6 +17,7 @@ class MainController: UIViewController, UITableViewDataSource, UITableViewDelega
     private var imageData = Data()
     private var imageDataJpeg = Data()
     
+    private var imageToBeResized : UIImage? = nil
     
     // Enums
     enum ImageSource {
@@ -56,6 +57,10 @@ class MainController: UIViewController, UITableViewDataSource, UITableViewDelega
             // completion
             self.takePicture()
         }
+        let resizePictureAction = UIAlertAction(title: "Resize picture", style: .default) { (action) in
+            // completion
+            self.resizePicture()
+        }
         let refreshAction = UIAlertAction(title: "Erase image and info", style: .destructive) { (action) in
             // completion
             self.hideImageInfo()
@@ -68,6 +73,7 @@ class MainController: UIViewController, UITableViewDataSource, UITableViewDelega
         // actions to the sheet
         optionMenu.addAction(takePictureAction)
         if !(self.imageView.image == nil) {
+            optionMenu.addAction(resizePictureAction)
             optionMenu.addAction(refreshAction)
         }
         optionMenu.addAction(cancelAction)
@@ -97,6 +103,17 @@ class MainController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         selectImageFrom(.camera)
     }
+    private func resizePicture() {
+        print("🤓 Resize picture")
+        // save image before resizing
+        imageToBeResized = imageView.image
+        hideImageInfo()
+        // resize the original image
+        imageView.image = imageToBeResized?.resizeToSize(size: CGSize(width: (imageToBeResized?.size.width)!/2, height: (imageToBeResized?.size.height)!/2))
+        showImageinfo()
+        
+    }
+    
     
     func selectImageFrom(_ source: ImageSource){
         imagePicker =  UIImagePickerController()
